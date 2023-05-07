@@ -1,0 +1,4 @@
+m<- matrix((1:12), nrow=3)
+print(m)
+print(apply(m,1,max))
+print(apply(m,2,sum))
