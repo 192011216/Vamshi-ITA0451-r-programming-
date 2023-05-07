@@ -1,0 +1,7 @@
+df <- data.frame(
+  IntsLogicals = integer(),
+  Doubles = double(),
+  Characters = character(),
+  stringsAsFactors = FALSE
+)
+df
