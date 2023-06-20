@@ -1,0 +1,4 @@
+values <- c(12, 7, 3, 4.2, 18, 2, 54, -21, 8, -5)  
+median_values <- median(values)
+print(median_values)  
+#-21,-5,2,3,4.2,7,8,12,18,54
