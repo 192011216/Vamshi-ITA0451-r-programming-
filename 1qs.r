@@ -1,21 +1,23 @@
-# Assuming you have a dataset with weight, time, and diet variables
+factorial <- function(n) {
+  result <- 1
+  for (i in 1:n) {
+    result <- result * i
+  }
+  return(result)
+}
+set.seed(42)  # Set a seed for reproducibility
 
-# Step 1: Load the dataset
-data <- read.csv("chicken_data.csv")  # Replace "chicken_data.csv" with your dataset file name
-# Step 2: Create the regression model
-model <- lm(weight ~ time + diet, data=data)
-# Step 3: View the model summary
-summary(model)
-# Step 4: Predict weight for Time=10 and Diet=1
-time_new <- 10
-diet_new <- 1
-new_data <- data.frame(time = time_new, diet = diet_new)
-weight_pred <- predict(model, newdata = new_data)
+# Create the matrix
+matrix_data <- matrix(sample(1:100, 12), nrow = 3, ncol = 4, byrow = TRUE)
 
-# Step 5: Find the error in the model for the same prediction
-actual_weight <-  # Fill in the actual weight value for Time=10 and Diet=1
-error <- (actual_weight - weight_pred)^2
+# Assign column and row names
+colnames(matrix_data) <- c("uno", "dos", "tres", "cuatro")
+rownames(matrix_data) <- c("x", "y", "z")
 
-# Step 6: View the predicted weight and error
-cat("Predicted weight:", weight_pred, "\n")
-cat("Error:", error)
+# Scale the matrix by 10
+scaled_matrix <- matrix_data * 10
+
+# Print the scaled matrix
+print(scaled_matrix)
+column_uno <- matrix_data[, "uno"]
+print(column_uno)
