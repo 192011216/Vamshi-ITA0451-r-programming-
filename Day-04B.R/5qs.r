@@ -1,0 +1,6 @@
+library(tidyverse)
+data(mtcars)
+summary(mtcars)
+str(mtcars)
+logit_model <- glm(am ~ hp + wt + cyl, data = mtcars, family = binomial(link = "logit"))
+summary(logit_model)
