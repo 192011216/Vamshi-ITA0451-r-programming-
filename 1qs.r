@@ -1,21 +1,21 @@
-# Input vector of height
-height <- c(151, 174, 138, 186, 128, 136, 179, 163, 152, 131)
+# Assuming you have a dataset with weight, time, and diet variables
 
-# Input vector of weight
-weight <- c(63, 81, 56, 91, 47, 57, 76, 72, 62, 48)
+# Step 1: Load the dataset
+data <- read.csv("chicken_data.csv")  # Replace "chicken_data.csv" with your dataset file name
+# Step 2: Create the regression model
+model <- lm(weight ~ time + diet, data=data)
+# Step 3: View the model summary
+summary(model)
+# Step 4: Predict weight for Time=10 and Diet=1
+time_new <- 10
+diet_new <- 1
+new_data <- data.frame(time = time_new, diet = diet_new)
+weight_pred <- predict(model, newdata = new_data)
 
-# Create a data frame using the height and weight vectors
-data <- data.frame(height, weight)
+# Step 5: Find the error in the model for the same prediction
+actual_weight <-  # Fill in the actual weight value for Time=10 and Diet=1
+error <- (actual_weight - weight_pred)^2
 
-# Fit a linear regression model to the data
-model <- lm(weight ~ height, data = data)
-
-# Predict the weight of a person with height 170
-predicted_weight <- predict(model, data.frame(height = 170))
-
-# Print the predicted weight
-cat("Predicted weight for height 170 cm:", round(predicted_weight, 2), "kg\n")
-
-# Generate a scatter plot of the data with the regression line
-plot(weight ~ height, data = data, main = "Height vs. Weight", xlab = "Height (cm)", ylab = "Weight (kg)")
-abline(model, col = "red")
+# Step 6: View the predicted weight and error
+cat("Predicted weight:", weight_pred, "\n")
+cat("Error:", error)
